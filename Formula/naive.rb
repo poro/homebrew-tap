@@ -1,8 +1,8 @@
 class Naive < Formula
   desc "AI-native game engine — create worlds with YAML, Lua, and natural language"
   homepage "https://github.com/poro/nAIVE"
-  url "https://github.com/poro/nAIVE/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "30d0549a1ba27b704711f70d0aadf553b9cf3403c0e9bd28b7758d456c055cab"
+  url "https://github.com/poro/nAIVE/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "16a3574bf214a5bc259335246dc58711a6515bd69735602fa27f308bc856b1c6"
   license "MIT"
 
   depends_on "rust" => :build
