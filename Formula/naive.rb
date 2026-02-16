@@ -10,12 +10,12 @@ class Naive < Formula
   # NVIDIA SLANG shader compiler SDK
   resource "slang" do
     on_arm do
-      url "https://github.com/shader-slang/slang/releases/download/v2026.2.1/slang-2026.2.1-macos-aarch64.tar.gz"
-      sha256 "e837adf6a953e869917c9ce64b975609df8fbcf09079d2d5e96f5fc2c3e79636"
+      url "https://github.com/shader-slang/slang/releases/download/v2026.2.2/slang-2026.2.2-macos-aarch64.tar.gz"
+      sha256 "44dfa55395fd0f1616956f3f2f0a3ec7fff930e33585ec2277abb6427b2a63a9"
     end
     on_intel do
-      url "https://github.com/shader-slang/slang/releases/download/v2026.2.1/slang-2026.2.1-macos-x86_64.tar.gz"
-      sha256 "adfa75d8f1ec265624b20a8c3c2a1260f28fbf359faca87242f66017f400d7b3"
+      url "https://github.com/shader-slang/slang/releases/download/v2026.2.2/slang-2026.2.2-macos-x86_64.tar.gz"
+      sha256 "af420111d93ebe7f6a31f48c8f7e35d63316b79d8f9e3c344dd77ddef82051e9"
     end
   end
 
