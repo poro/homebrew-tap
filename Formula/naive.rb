@@ -1,8 +1,10 @@
 class Naive < Formula
   desc "AI-native game engine — create worlds with YAML, Lua, and natural language"
   homepage "https://github.com/poro/nAIVE"
-  url "https://github.com/poro/nAIVE/archive/refs/tags/v0.1.21.tar.gz"
-  sha256 "9889ccfac99126716b27b80e10b9897c8bf43c173b558c9eed3cf7d7f0b40c44"
+  # Built by the release workflow with the Git LFS meshes that include_bytes!
+  # embeds; GitHub's automatic archives can hold LFS pointers instead.
+  url "https://github.com/poro/nAIVE/releases/download/v0.1.22/nAIVE-0.1.22-source.tar.gz"
+  sha256 "ff1e64286d55f2c043769ead102bec5aa9c28cab1cb7c4f7b1d88817bd55640a"
   license "MIT"
 
   depends_on "rust" => :build
@@ -34,6 +36,10 @@ class Naive < Formula
     # Build and install the naive-runtime crate (produces naive + naive-runtime + naive_mcp binaries)
     system "cargo", "install", *std_cargo_args(path: "crates/naive-runtime")
 
+    # naive-player: naive without Slang, which `naive build` ships in game
+    # bundles. Its own cargo install builds it without the slang feature.
+    system "cargo", "install", *std_cargo_args(path: "crates/naive-player")
+
     # Install SLANG shared libraries so they're available at runtime
     lib.install Dir[buildpath/"vendor/lib/*.dylib"]
 
@@ -42,6 +48,9 @@ class Naive < Formula
   end
 
   test do
-    assert_match "nAIVE runtime", shell_output("#{bin}/naive --help 2>&1", 0)
+    assert_match "AI-Native Game Engine", shell_output("#{bin}/naive --help 2>&1", 0)
+    assert_match "AI-Native Game Engine", shell_output("#{bin}/naive-player --help 2>&1", 0)
+    # Game bundles must run without the Slang libraries.
+    refute_match(/slang/i, shell_output("otool -L #{bin}/naive-player"))
   end
 end
