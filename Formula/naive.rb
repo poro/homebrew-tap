@@ -48,8 +48,8 @@ class Naive < Formula
   end
 
   test do
-    assert_match "AI-Native Game Engine", shell_output("#{bin}/naive --help 2>&1", 0)
-    assert_match "AI-Native Game Engine", shell_output("#{bin}/naive-player --help 2>&1", 0)
+    assert_match "AI-Native Game Engine", shell_output("#{bin}/naive --help 2>&1")
+    assert_match "AI-Native Game Engine", shell_output("#{bin}/naive-player --help 2>&1")
     # Game bundles must run without the Slang libraries.
     refute_match(/slang/i, shell_output("otool -L #{bin}/naive-player"))
   end
