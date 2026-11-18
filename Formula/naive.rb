@@ -3,8 +3,8 @@ class Naive < Formula
   homepage "https://github.com/poro/nAIVE"
   # Built by the release workflow with the Git LFS meshes that include_bytes!
   # embeds; GitHub's automatic archives can hold LFS pointers instead.
-  url "https://github.com/poro/nAIVE/releases/download/v0.1.23/nAIVE-0.1.23-source.tar.gz"
-  sha256 "0284f178379646fe9a0bd29bcd26a2f8d8df5233a51fafb5a36ffd4363a26b85"
+  url "https://github.com/poro/nAIVE/releases/download/v0.1.24/nAIVE-0.1.24-source.tar.gz"
+  sha256 "46aea25e97bd808204e23e907439c43090745e929671ffa4a329f213b6e5b1a3"
   license "MIT"
 
   depends_on "rust" => :build
